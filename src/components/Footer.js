@@ -1,4 +1,4 @@
-import { FaGithub, FaInstagram, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 import styled from "styled-components";
 import { theme } from "../styles"; // Założenie o wspólnym pliku stylów
 
@@ -56,7 +56,7 @@ const CopyrightText = styled.p`
 const Footer = () => {
   return (
     <FooterContainer>
-      <SocialLinks>
+      {/* <SocialLinks>
         <SocialIcon
           href="https://github.com/psychologianauki"
           target="_blank"
@@ -81,13 +81,12 @@ const Footer = () => {
         >
           <FaInstagram />
         </SocialIcon>
-      </SocialLinks>
-      <PhoneLink href="tel:+48123456789">
-        <FaPhoneAlt /> +48 698 140 048
+      </SocialLinks> */}
+      <PhoneLink href="tel:+48698140048">
+        <FaPhoneAlt /> +48 123456789
       </PhoneLink>
       <CopyrightText>
-        Zaprojektowane i stworzone przez SL Technologies &copy;{" "}
-        {new Date().getFullYear()}
+        Created by SL Technologies &copy; {new Date().getFullYear()}
       </CopyrightText>
     </FooterContainer>
   );

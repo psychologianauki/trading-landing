@@ -1,12 +1,8 @@
-import About from "./components/About";
 import Contact from "./components/Contact";
+import TechStack from "./components/FaqSection";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Process from "./components/Process";
-import Services from "./components/Services";
-import Stats from "./components/Stats";
-import TechStack from "./components/TechStack";
+import SuccessStories from "./components/Process";
 import { GlobalStyle } from "./styles-config";
 
 function App() {
@@ -39,13 +35,10 @@ function App() {
   return (
     <div style={appWrapperStyle}>
       <GlobalStyle />
-      <Navbar />
+      {/* <Navbar /> */}
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Process />
-        <Stats />
+        <SuccessStories />
         <TechStack />
         <Contact />
       </main>
