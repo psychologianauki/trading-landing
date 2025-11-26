@@ -1,8 +1,8 @@
 // --- CSS STYLES ---
 const cssStyles = `
   .video-hero-section {
-    background-color: #020617; /* Głęboka czerń/granat */
-    background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #020617 70%); /* Efekt spotlight */
+    background-color: #222f67ff; /* Głęboka czerń/granat */
+    background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #0e1538ff 70%); /* Efekt spotlight */
     color: white;
     font-family: 'Inter', sans-serif;
     padding: 5rem 1rem;
@@ -30,7 +30,6 @@ const cssStyles = `
   }
 
   .video-hero-container {
-    max-width: 900px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -55,7 +54,7 @@ const cssStyles = `
     margin-bottom: 1.5rem;
     color: white;
     /* Nowoczesny gradient na tekście */
-    background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #86bdffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
@@ -84,7 +83,6 @@ const cssStyles = `
   /* Video Box Styles */
   .video-wrapper {
     width: 100%;
-    max-width: 750px;
     background-color: black;
     border-radius: 12px;
     overflow: hidden;

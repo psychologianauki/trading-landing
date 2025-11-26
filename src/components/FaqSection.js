@@ -4,7 +4,7 @@ import { useState } from "react";
 const cssStyles = `
   .faq-section {
     background-color: #020617; /* Głęboka czerń/granat */
-    background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #020617 70%); /* Spotlight od góry */
+    background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #0e1538ff 70%); /* Spotlight od góry */
     padding: 5rem 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
