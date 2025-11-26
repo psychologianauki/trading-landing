@@ -1,8 +1,8 @@
 // --- CSS STYLES ---
 const cssStyles = `
   .about-section {
-    background-color: #020617; /* Głęboka czerń/granat */
-    background-image: radial-gradient(ellipse at 50% 100%, #1e293b 0%, #020617 70%); /* Spotlight od dołu */
+    background-color: #0d163eff; /* Głęboka czerń/granat */
+    background-image: radial-gradient(ellipse at 50% 100%, #1e293b 0%, #0d163eff 70%); /* Spotlight od dołu */
     padding: 6rem 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
@@ -273,9 +273,7 @@ const AboutSection = () => {
             <div className="image-wrapper">
               {/* Tutaj w przyszłości wstawisz: <img src="sciezka/do/obrazka.jpg" alt="Trader in car" style={{width: '100%', height: '100%', objectFit: 'cover'}} /> */}
               <div className="placeholder-img-text">
-                [IMAGE PLACEHOLDER]
                 <br />
-                Man in Rolls Royce / Luxury Car
               </div>
             </div>
 
@@ -295,25 +293,30 @@ const AboutSection = () => {
               </ul>
 
               <div className="cta-wrapper">
-                <button className="cta-btn">
-                  <div className="btn-arrow">
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="12"
-                      height="12"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                  Join Trading Group - It's Free
-                </button>
-
+                <a
+                  href="https://t.me/+cBbK4iQfLBcwOGJk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="cta-btn">
+                    <div className="btn-arrow">
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </div>
+                    Join Trading Group - It's Free
+                  </button>
+                </a>
                 <div className="social-proof">
                   <div className="avatars">
                     <div

@@ -210,8 +210,24 @@ const Navbar = () => {
             href="/"
             className="nav-logo"
             onClick={(e) => scrollToSection(e, "home")}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "white",
+              width: "100px",
+              height: "60px",
+              borderRadius: "10px",
+            }}
           >
-            AZ<span>.Trading</span>
+            <img
+              src="/logo1.png"
+              alt="AZ.Trading Logo"
+              style={{
+                width: "90px",
+                height: "50px",
+              }}
+            />
           </a>
 
           <button
@@ -262,9 +278,10 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#join"
+                href="https://t.me/+cBbK4iQfLBcwOGJk"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="nav-btn"
-                onClick={(e) => scrollToSection(e, "results")}
               >
                 Join Now
               </a>

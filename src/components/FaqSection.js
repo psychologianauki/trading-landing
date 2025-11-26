@@ -317,25 +317,31 @@ const FaqSection = () => {
           </div>
 
           <div className="cta-container">
-            <button className="cta-btn">
-              <div className="btn-arrow">
-                {/* Ikona strzałki w kółku */}
-                <svg
-                  viewBox="0 0 24 24"
-                  width="14"
-                  height="14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </div>
-              Join Trading Group - It's Free
-            </button>
+            <a
+              href="https://t.me/+cBbK4iQfLBcwOGJk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="cta-btn">
+                <div className="btn-arrow">
+                  {/* Ikona strzałki w kółku */}
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+                Join Trading Group - It's Free
+              </button>
+            </a>
 
             <div className="social-proof">
               <div className="avatars">

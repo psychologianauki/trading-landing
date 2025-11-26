@@ -2,7 +2,7 @@
 const cssStyles = `
   .stories-section {
     background-color: #020617; /* Głęboka czerń/granat */
-    background-image: radial-gradient(ellipse at 50% 100%, #1e293b 0%, #020617 70%); /* Spotlight od dołu */
+    background-image: radial-gradient(ellipse at 50% 100%, #1e293b 0%, #0d163eff 70%); /* Spotlight od dołu */
     padding: 5rem 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
@@ -62,7 +62,7 @@ const cssStyles = `
 
   @media (min-width: 1200px) {
     .stories-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -133,7 +133,7 @@ const cssStyles = `
   /* Chat Area */
   .chat-area {
     flex: 1;
-    background-color: #020617; /* Very dark slate */
+    background-color: #c1c7e0ff; /* Very dark slate */
     /* Dot pattern */
     background-image: radial-gradient(#1e293b 1.5px, transparent 1.5px);
     background-size: 20px 20px;
@@ -326,37 +326,37 @@ const storiesData = [
     ],
   },
   // --- NOWE HISTORIE ---
-  {
-    name: "James B.",
-    avatarColor: "#3b82f6", // Blue
-    messages: [
-      { type: "outgoing", text: "How's the small account growing?" },
-      {
-        type: "incoming",
-        text: "Started with $200 last week, check this out now...",
-        hasImage: true,
-        profit: "+ $540.20",
-      },
-      { type: "incoming", text: "Nearly tripled it in 7 days! 🤯" },
-    ],
-  },
-  {
-    name: "Emily R.",
-    avatarColor: "#ef4444", // Red
-    messages: [
-      {
-        type: "incoming",
-        text: "I was scared to trade news, but your live analysis helped so much.",
-      },
-      {
-        type: "incoming",
-        text: "Caught the whole drop!",
-        hasImage: true,
-        profit: "+ $2,105.00",
-      },
-      { type: "outgoing", text: "You executed it perfectly. Proud of you!" },
-    ],
-  },
+  // {
+  //   name: "James B.",
+  //   avatarColor: "#3b82f6", // Blue
+  //   messages: [
+  //     { type: "outgoing", text: "How's the small account growing?" },
+  //     {
+  //       type: "incoming",
+  //       text: "Started with $200 last week, check this out now...",
+  //       hasImage: true,
+  //       profit: "+ $540.20",
+  //     },
+  //     { type: "incoming", text: "Nearly tripled it in 7 days! 🤯" },
+  //   ],
+  // },
+  // {
+  //   name: "Emily R.",
+  //   avatarColor: "#ef4444", // Red
+  //   messages: [
+  //     {
+  //       type: "incoming",
+  //       text: "I was scared to trade news, but your live analysis helped so much.",
+  //     },
+  //     {
+  //       type: "incoming",
+  //       text: "Caught the whole drop!",
+  //       hasImage: true,
+  //       profit: "+ $2,105.00",
+  //     },
+  //     { type: "outgoing", text: "You executed it perfectly. Proud of you!" },
+  //   ],
+  // },
 ];
 
 // --- SUB-KOMPONENT: Trading Result Mockup ---

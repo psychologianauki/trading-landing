@@ -1,8 +1,8 @@
 // --- CSS STYLES ---
 const cssStyles = `
   .video-hero-section {
-    background-color: #222f67ff; /* Głęboka czerń/granat */
-    background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #0e1538ff 70%); /* Efekt spotlight */
+    background-color: #222f67ff;
+    background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #0d163eff 70%);
     color: white;
     font-family: 'Inter', sans-serif;
     padding: 5rem 1rem;
@@ -13,7 +13,6 @@ const cssStyles = `
     position: relative;
   }
 
-  /* Subtelna siatka w tle dla nowoczesnego looku */
   .video-hero-section::before {
     content: '';
     position: absolute;
@@ -38,11 +37,10 @@ const cssStyles = `
     z-index: 1;
   }
 
-  /* Header Typography */
   .top-italic {
     font-style: italic;
     font-size: 0.95rem;
-    color: #94a3b8; /* Cool gray */
+    color: #94a3b8;
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
   }
@@ -53,7 +51,6 @@ const cssStyles = `
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: white;
-    /* Nowoczesny gradient na tekście */
     background: linear-gradient(135deg, #ffffff 0%, #86bdffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -80,14 +77,12 @@ const cssStyles = `
     backdrop-filter: blur(5px);
   }
 
-  /* Video Box Styles */
   .video-wrapper {
     width: 100%;
     background-color: black;
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 2.5rem;
-    /* Niebieska poświata */
     box-shadow: 0 0 40px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(30, 58, 138, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -97,7 +92,7 @@ const cssStyles = `
   }
 
   .video-header-strip {
-    background: linear-gradient(90deg, #1e3a8a, #2563eb); /* Gradient niebieski */
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
     color: white;
     font-size: 0.8rem;
     font-weight: 700;
@@ -108,6 +103,8 @@ const cssStyles = `
     gap: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
   }
 
   .video-content-placeholder {
@@ -118,7 +115,6 @@ const cssStyles = `
     justify-content: center;
     background: radial-gradient(circle, #0f172a 0%, #000000 100%);
     position: relative;
-    cursor: pointer;
   }
   
   .play-button {
@@ -140,7 +136,17 @@ const cssStyles = `
     transform: scale(1.1);
   }
 
-  /* Features List */
+  /* STYL DLA LOKALNEGO WIDEO */
+  .video-content-placeholder video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ważne: wypełnia całą ramkę */
+    display: block;
+  }
+
   .features-row {
     display: flex;
     flex-wrap: wrap;
@@ -164,7 +170,7 @@ const cssStyles = `
   .feature-check {
     width: 20px;
     height: 20px;
-    background-color: #2563eb; /* Electric Blue */
+    background-color: #2563eb;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -173,7 +179,6 @@ const cssStyles = `
     box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
   }
 
-  /* Bottom CTA Area */
   .step-text {
     font-size: 1.2rem;
     font-weight: 700;
@@ -193,9 +198,8 @@ const cssStyles = `
     line-height: 1.6;
   }
 
-  /* Modern Gradient Button */
   .cta-btn {
-    background: linear-gradient(90deg, #2563eb, #3b82f6); /* Gradient niebieski */
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
     color: white;
     font-weight: 700;
     font-size: 1.15rem;
@@ -207,7 +211,7 @@ const cssStyles = `
     align-items: center;
     gap: 0.8rem;
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4); /* Mocny glow */
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
@@ -245,7 +249,6 @@ const cssStyles = `
     justify-content: center;
   }
 
-  /* Social Proof */
   .social-proof {
     display: flex;
     align-items: center;
@@ -286,7 +289,7 @@ const cssStyles = `
   }
 
   .stars {
-    color: #3b82f6; /* Niebieskie gwiazdki dla spójności */
+    color: #3b82f6;
     font-size: 14px;
     margin-bottom: 2px;
     letter-spacing: 2px;
@@ -301,7 +304,12 @@ const cssStyles = `
 // --- ICONS (SVG) ---
 const TrophyIcon = () => (
   <span style={{ filter: "grayscale(100%) brightness(200%)" }}>🏆</span>
-  // Zdesaturowane trofeum, żeby pasowało do chłodnego stylu
+);
+
+const PlayIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M8 5v14l11-7z" />
+  </svg>
 );
 
 const VolumeIcon = () => (
@@ -348,12 +356,6 @@ const ArrowIcon = () => (
   </svg>
 );
 
-const PlayIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-    <path d="M8 5v14l11-7z" />
-  </svg>
-);
-
 const ArrowDownIcon = () => (
   <svg
     width="24"
@@ -392,16 +394,24 @@ const VideoHeroSection = () => {
             <TrophyIcon /> inside 2024's #1 rated trading group
           </div>
 
-          {/* Video Placeholder Box */}
+          {/* Video Box */}
           <div className="video-wrapper">
             <div className="video-header-strip">
               <VolumeIcon />
-              Step #1: Click Play & Make Sure The Sound Is On!
+              Step #1: Make Sure The Sound Is On!
             </div>
+
             <div className="video-content-placeholder">
               <div className="play-button">
                 <PlayIcon />
               </div>
+              {/* <video
+                autoPlay
+                loop
+                playsInline
+                src="/film.mp4"
+                //  controls // Odkomentuj, jeśli chcesz pasek sterowania (play/pause)
+              ></video> */}
             </div>
           </div>
 
@@ -440,14 +450,18 @@ const VideoHeroSection = () => {
             You'll be redirected to fill in your details so we can send over
             your personalised invitation to the Telegram group...
           </p>
-
-          <button className="cta-btn">
-            <div className="btn-arrow">
-              <ArrowIcon />
-            </div>
-            Join Trading Group - It's Free
-          </button>
-
+          <a
+            href="https://t.me/+cBbK4iQfLBcwOGJk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="cta-btn">
+              <div className="btn-arrow">
+                <ArrowIcon />
+              </div>
+              Join Trading Group - It's Free
+            </button>
+          </a>
           <div className="social-proof">
             <div className="avatars">
               <div className="avatar" style={{ backgroundColor: "#64748b" }}>
