@@ -1,31 +1,56 @@
 // --- CSS STYLES ---
 const cssStyles = `
   .stories-section {
-    background-color: #151922;
+    background-color: #020617; /* Głęboka czerń/granat */
+    background-image: radial-gradient(ellipse at 50% 100%, #1e293b 0%, #020617 70%); /* Spotlight od dołu */
     padding: 5rem 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
     overflow: hidden;
+    position: relative;
+  }
+
+  /* Subtelna siatka w tle */
+  .stories-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .stories-container {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
 
   .stories-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 800;
     margin-bottom: 4rem;
     color: white;
+    /* Gradient text matching Hero */
+    background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
   }
 
   .stories-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
+    gap: 3rem;
     justify-items: center;
   }
 
@@ -35,50 +60,58 @@ const cssStyles = `
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     .stories-grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  /* --- PHONE MOCKUP STYLES --- */
+  /* --- PHONE MOCKUP STYLES (Dark Mode) --- */
   .phone-card {
-    background-color: #ffffff; /* Tło aplikacji czatu (Telegram default bg is image, but white/light gray is fine for mockup) */
+    background-color: #0f172a; /* Dark background for the phone */
     width: 100%;
-    max-width: 280px;
-    height: 500px;
-    border-radius: 20px;
-    border: 8px solid #1e293b; /* Ramka telefonu */
+    max-width: 320px;
+    height: 580px;
+    border-radius: 30px;
+    border: 8px solid #334155; /* Dark steel border */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(59, 130, 246, 0.2);
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .phone-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 35px 60px -15px rgba(37, 99, 235, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.4);
+    border-color: #475569;
   }
 
-  /* Phone Header (Status Bar + App Header) */
+  /* Phone Header */
   .phone-header {
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-bottom: 1px solid #e5e7eb;
+    background-color: #1e293b; /* Slate 800 */
+    padding: 15px;
+    border-bottom: 1px solid #334155;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     z-index: 10;
   }
 
   .header-avatar {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #3b82f6;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
   }
 
   .header-info {
@@ -87,134 +120,151 @@ const cssStyles = `
   }
 
   .header-name {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    color: #111827;
+    color: #f1f5f9; /* White-ish */
   }
 
   .header-status {
-    font-size: 11px;
-    color: #3b82f6;
+    font-size: 12px;
+    color: #60a5fa; /* Blue-400 */
   }
 
   /* Chat Area */
   .chat-area {
     flex: 1;
-    background-color: #e5ddd5; /* WhatsApp-like bg color or Telegram pattern */
-    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-color: #020617; /* Very dark slate */
+    /* Dot pattern */
+    background-image: radial-gradient(#1e293b 1.5px, transparent 1.5px);
     background-size: 20px 20px;
-    padding: 15px 10px;
+    padding: 20px 12px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
   }
 
   /* Messages */
   .message {
     max-width: 85%;
-    padding: 8px 12px;
-    border-radius: 12px;
-    font-size: 13px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 14px;
     line-height: 1.4;
     position: relative;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
 
   .msg-incoming {
-    background-color: #ffffff;
+    background-color: #1e293b; /* Slate 800 */
     align-self: flex-start;
-    color: #111827;
+    color: #e2e8f0;
     border-bottom-left-radius: 4px;
+    border: 1px solid #334155;
   }
 
   .msg-outgoing {
-    background-color: #dcf8c6; /* WhatsApp green-ish */
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); /* Blue Gradient */
     align-self: flex-end;
-    color: #111827;
+    color: white;
     border-bottom-right-radius: 4px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
   }
 
   .msg-time {
     font-size: 10px;
-    color: #9ca3af;
+    color: #94a3b8;
     text-align: right;
-    margin-top: 4px;
+    margin-top: 5px;
+    opacity: 0.8;
   }
 
   /* Image Attachment Mockup */
   .msg-image {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     overflow: hidden;
-    background-color: #f3f4f6;
-    border: 1px solid #e5e7eb;
+    background-color: #0f172a;
+    border: 1px solid #334155;
   }
 
   .trading-result {
-    padding: 10px;
+    padding: 12px;
+    background-color: #0f172a;
   }
 
   .result-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     font-family: monospace;
-    font-size: 11px;
+    font-size: 12px;
+    color: #cbd5e1;
   }
 
   .profit-text {
-    color: #16a34a; /* Green */
+    color: #4ade80; /* Neon Green for dark mode */
     font-weight: bold;
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
   }
 
   .symbol-text {
     font-weight: 700;
-    color: #374151;
+    color: #e2e8f0;
   }
 
-  /* Input Area (Fake) */
+  /* Input Area */
   .phone-input {
-    background-color: #f0f2f5;
-    padding: 10px;
+    background-color: #1e293b;
+    padding: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
+    border-top: 1px solid #334155;
   }
 
   .input-fake {
     flex: 1;
-    height: 30px;
-    background-color: white;
-    border-radius: 15px;
-    padding: 0 10px;
+    height: 36px;
+    background-color: #0f172a;
+    border-radius: 18px;
+    padding: 0 12px;
     display: flex;
     align-items: center;
-    color: #9ca3af;
-    font-size: 12px;
+    color: #64748b;
+    font-size: 13px;
+    border: 1px solid #334155;
   }
 
   .send-btn {
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     background-color: #3b82f6;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+    transition: transform 0.2s;
+  }
+  
+  .send-btn:hover {
+    transform: scale(1.05);
   }
   
   /* Decoration Elements */
   .blur-glow {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background: #00c075;
-    filter: blur(100px);
+    width: 400px;
+    height: 400px;
+    background: #3b82f6;
+    filter: blur(150px);
     opacity: 0.1;
     z-index: 0;
     pointer-events: none;
+    border-radius: 50%;
   }
 `;
 
@@ -275,6 +325,38 @@ const storiesData = [
       },
     ],
   },
+  // --- NOWE HISTORIE ---
+  {
+    name: "James B.",
+    avatarColor: "#3b82f6", // Blue
+    messages: [
+      { type: "outgoing", text: "How's the small account growing?" },
+      {
+        type: "incoming",
+        text: "Started with $200 last week, check this out now...",
+        hasImage: true,
+        profit: "+ $540.20",
+      },
+      { type: "incoming", text: "Nearly tripled it in 7 days! 🤯" },
+    ],
+  },
+  {
+    name: "Emily R.",
+    avatarColor: "#ef4444", // Red
+    messages: [
+      {
+        type: "incoming",
+        text: "I was scared to trade news, but your live analysis helped so much.",
+      },
+      {
+        type: "incoming",
+        text: "Caught the whole drop!",
+        hasImage: true,
+        profit: "+ $2,105.00",
+      },
+      { type: "outgoing", text: "You executed it perfectly. Proud of you!" },
+    ],
+  },
 ];
 
 // --- SUB-KOMPONENT: Trading Result Mockup ---
@@ -282,15 +364,26 @@ const TradingResultImage = ({ profit }) => (
   <div className="msg-image">
     <div
       style={{
-        backgroundColor: "#f9fafb",
-        padding: "5px",
-        borderBottom: "1px solid #eee",
-        fontSize: "10px",
+        backgroundColor: "#1e293b",
+        padding: "8px",
+        borderBottom: "1px solid #334155",
+        fontSize: "11px",
         fontWeight: "bold",
-        color: "#555",
+        color: "#94a3b8",
+        display: "flex",
+        alignItems: "center",
+        gap: "5px",
       }}
     >
-      MetaTrader 4 Positions
+      <span
+        style={{
+          width: "8px",
+          height: "8px",
+          borderRadius: "50%",
+          backgroundColor: "#4ade80",
+        }}
+      ></span>{" "}
+      MetaTrader 4
     </div>
     <div className="trading-result">
       <div className="result-row">
@@ -304,13 +397,13 @@ const TradingResultImage = ({ profit }) => (
       <div
         className="result-row"
         style={{
-          marginTop: "5px",
-          borderTop: "1px dashed #ccc",
-          paddingTop: "5px",
+          marginTop: "8px",
+          borderTop: "1px dashed #334155",
+          paddingTop: "8px",
         }}
       >
         <span>Total Profit:</span>
-        <span className="profit-text" style={{ fontSize: "12px" }}>
+        <span className="profit-text" style={{ fontSize: "13px" }}>
           {profit}
         </span>
       </div>
@@ -326,10 +419,10 @@ const SuccessStories = () => {
       <style>{cssStyles}</style>
       <section className="stories-section">
         {/* Dekoracyjne tło */}
-        <div className="blur-glow" style={{ top: "20%", left: "10%" }}></div>
+        <div className="blur-glow" style={{ top: "10%", left: "5%" }}></div>
         <div
           className="blur-glow"
-          style={{ bottom: "20%", right: "10%", background: "#3b82f6" }}
+          style={{ bottom: "10%", right: "5%", background: "#3b82f6" }}
         ></div>
 
         <div className="stories-container">
@@ -357,9 +450,9 @@ const SuccessStories = () => {
                   <div
                     style={{
                       textAlign: "center",
-                      fontSize: "10px",
-                      color: "#9ca3af",
-                      marginBottom: "10px",
+                      fontSize: "11px",
+                      color: "#64748b",
+                      marginBottom: "15px",
                     }}
                   >
                     Today
@@ -387,8 +480,8 @@ const SuccessStories = () => {
                 <div className="phone-input">
                   <div style={{ color: "#3b82f6" }}>
                     <svg
-                      width="20"
-                      height="20"
+                      width="24"
+                      height="24"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -400,8 +493,8 @@ const SuccessStories = () => {
                   <div className="input-fake">Message...</div>
                   <div className="send-btn">
                     <svg
-                      width="14"
-                      height="14"
+                      width="16"
+                      height="16"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="white"

@@ -1,13 +1,32 @@
 // --- CSS STYLES ---
 const cssStyles = `
   .video-hero-section {
-    background-color: #0b0f19; /* Ciemne tło strony */
+    background-color: #020617; /* Głęboka czerń/granat */
+    background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #020617 70%); /* Efekt spotlight */
     color: white;
     font-family: 'Inter', sans-serif;
-    padding: 4rem 1rem;
+    padding: 5rem 1rem;
     display: flex;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Subtelna siatka w tle dla nowoczesnego looku */
+  .video-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .video-hero-container {
@@ -16,65 +35,81 @@ const cssStyles = `
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 1;
   }
 
   /* Header Typography */
   .top-italic {
     font-style: italic;
     font-size: 0.95rem;
-    color: #cbd5e1; /* jasny szary */
-    margin-bottom: 0.5rem;
+    color: #94a3b8; /* Cool gray */
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
   }
 
   .main-heading {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
     color: white;
+    /* Nowoczesny gradient na tekście */
+    background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
   }
 
   @media (max-width: 768px) {
     .main-heading {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
   }
 
   .sub-heading {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-    color: white;
-    margin-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Subtelne podkreślenie */
-    padding-bottom: 2px;
+    gap: 0.6rem;
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
   }
 
   /* Video Box Styles */
   .video-wrapper {
     width: 100%;
-    max-width: 700px;
+    max-width: 750px;
     background-color: black;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 2rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    border: 1px solid #1e293b;
+    margin-bottom: 2.5rem;
+    /* Niebieska poświata */
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(30, 58, 138, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .video-wrapper:hover {
+    box-shadow: 0 0 50px rgba(37, 99, 235, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.5);
   }
 
   .video-header-strip {
-    background-color: #00c075; /* Główny zielony kolor */
-    color: #052e16; /* Ciemny tekst na zielonym */
-    font-size: 0.85rem;
+    background: linear-gradient(90deg, #1e3a8a, #2563eb); /* Gradient niebieski */
+    color: white;
+    font-size: 0.8rem;
     font-weight: 700;
-    padding: 0.6rem;
+    padding: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
   }
 
   .video-content-placeholder {
@@ -83,24 +118,28 @@ const cssStyles = `
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000;
+    background: radial-gradient(circle, #0f172a 0%, #000000 100%);
     position: relative;
     cursor: pointer;
   }
   
   .play-button {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.2);
+    width: 70px;
+    height: 70px;
+    background-color: rgba(59, 130, 246, 0.2); /* Niebieski tint */
+    border: 1px solid rgba(59, 130, 246, 0.4);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
   }
 
   .video-content-placeholder:hover .play-button {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(59, 130, 246, 0.4);
+    transform: scale(1.1);
   }
 
   /* Features List */
@@ -109,87 +148,115 @@ const cssStyles = `
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
   }
 
   .feature-pill {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: #e2e8f0;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid rgba(30, 41, 59, 0.5);
   }
 
   .feature-check {
-    width: 18px;
-    height: 18px;
-    background-color: #00c075;
+    width: 20px;
+    height: 20px;
+    background-color: #2563eb; /* Electric Blue */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
   }
 
   /* Bottom CTA Area */
   .step-text {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
+    color: #ffffff;
   }
 
   .step-desc {
     color: #94a3b8;
-    font-size: 0.9rem;
-    max-width: 400px;
-    margin: 0 auto 2rem auto;
-    line-height: 1.5;
+    font-size: 1rem;
+    max-width: 450px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
   }
 
-  /* Button & Social Proof (Reused styles for consistency) */
-  .green-btn {
-    background-color: #00c075;
-    color: #052e16;
+  /* Modern Gradient Button */
+  .cta-btn {
+    background: linear-gradient(90deg, #2563eb, #3b82f6); /* Gradient niebieski */
+    color: white;
     font-weight: 700;
-    font-size: 1.1rem;
-    padding: 1rem 3rem;
+    font-size: 1.15rem;
+    padding: 1.1rem 3.5rem;
     border-radius: 50px;
     border: none;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    transition: transform 0.2s, background-color 0.2s;
-    box-shadow: 0 4px 15px rgba(0, 192, 117, 0.3);
-    margin-bottom: 1.5rem;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4); /* Mocny glow */
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
   }
 
-  .green-btn:hover {
-    background-color: #00d682;
-    transform: translateY(-2px);
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.6);
+  }
+
+  .cta-btn:hover::before {
+    left: 100%;
   }
 
   .btn-arrow {
-    width: 20px;
-    height: 20px;
-    background-color: #052e16;
-    color: #00c075;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    color: #2563eb;
     border-radius: 50%;
-    padding: 2px;
+    padding: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  /* Social Proof */
   .social-proof {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .avatars {
@@ -197,16 +264,17 @@ const cssStyles = `
   }
 
   .avatar {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    border: 2px solid #0b0f19;
+    border: 2px solid #020617;
     background-color: #334155;
-    margin-left: -10px;
+    margin-left: -12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
+    font-size: 11px;
+    font-weight: bold;
     color: white;
     overflow: hidden;
   }
@@ -220,29 +288,28 @@ const cssStyles = `
   }
 
   .stars {
-    color: #fbbf24;
+    color: #3b82f6; /* Niebieskie gwiazdki dla spójności */
     font-size: 14px;
     margin-bottom: 2px;
+    letter-spacing: 2px;
   }
 
   .social-text {
-    font-size: 0.75rem;
-    color: #9ca3af;
+    font-size: 0.8rem;
+    color: #cbd5e1;
   }
 `;
 
 // --- ICONS (SVG) ---
 const TrophyIcon = () => (
-  <span role="img" aria-label="trophy">
-    🏆
-  </span>
-  // Można użyć emoji lub SVG, emoji jest szybsze i pasuje do obrazka
+  <span style={{ filter: "grayscale(100%) brightness(200%)" }}>🏆</span>
+  // Zdesaturowane trofeum, żeby pasowało do chłodnego stylu
 );
 
 const VolumeIcon = () => (
   <svg
-    width="16"
-    height="16"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -254,11 +321,11 @@ const VolumeIcon = () => (
 
 const CheckIcon = () => (
   <svg
-    width="10"
-    height="10"
+    width="12"
+    height="12"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="#052e16"
+    stroke="white"
     strokeWidth="4"
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -284,25 +351,25 @@ const ArrowIcon = () => (
 );
 
 const PlayIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
     <path d="M8 5v14l11-7z" />
   </svg>
 );
 
-const DownArrowCircle = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-    <path
-      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 12v-4h3l-4-4-4 4h3v4h2z"
-      fill="none"
-    />{" "}
-    {/* White circle fill trick if needed */}
-    <path
-      d="M12 4c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8m0-2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 13l-4-4h8l-4 4z"
-      fill="white"
-    />{" "}
-    {/* Simplified down arrow */}
-    <circle cx="12" cy="12" r="9" fill="white" fillOpacity="0.2" />
-    <path d="M12 16l-4-4h8l-4 4z" fill="white" />
+const ArrowDownIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#3b82f6"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <polyline points="8 12 12 16 16 12"></polyline>
+    <line x1="12" y1="8" x2="12" y2="16"></line>
   </svg>
 );
 
@@ -359,14 +426,16 @@ const VideoHeroSection = () => {
 
           {/* CTA Section */}
           <div className="step-text">
-            <span style={{ transform: "rotate(0deg)", display: "inline-flex" }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5z" />
-              </svg>
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginRight: "8px",
+              }}
+            >
+              <ArrowDownIcon />
             </span>
-            {/* Using a simple circle down icon replacement */}
-            <span style={{ fontSize: "1.2rem" }}>⬇</span> Step #2: Apply To Get
-            Started
+            Step #2: Apply To Get Started
           </div>
 
           <p className="step-desc">
@@ -374,7 +443,7 @@ const VideoHeroSection = () => {
             your personalised invitation to the Telegram group...
           </p>
 
-          <button className="green-btn">
+          <button className="cta-btn">
             <div className="btn-arrow">
               <ArrowIcon />
             </div>
@@ -389,10 +458,10 @@ const VideoHeroSection = () => {
               <div className="avatar" style={{ backgroundColor: "#475569" }}>
                 MK
               </div>
-              <div className="avatar" style={{ backgroundColor: "#334155" }}>
+              <div className="avatar" style={{ backgroundColor: "#3b82f6" }}>
                 AS
               </div>
-              <div className="avatar" style={{ backgroundColor: "#00c075" }}>
+              <div className="avatar" style={{ backgroundColor: "#2563eb" }}>
                 1K
               </div>
             </div>
