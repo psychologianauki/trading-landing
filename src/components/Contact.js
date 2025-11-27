@@ -271,10 +271,11 @@ const AboutSection = () => {
           <div className="content-grid">
             {/* Lewa kolumna: Obrazek */}
             <div className="image-wrapper">
-              {/* Tutaj w przyszłości wstawisz: <img src="sciezka/do/obrazka.jpg" alt="Trader in car" style={{width: '100%', height: '100%', objectFit: 'cover'}} /> */}
-              <div className="placeholder-img-text">
-                <br />
-              </div>
+              <img
+                src="lambo.jpg"
+                alt="Trader in car"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </div>
 
             {/* Prawa kolumna: Tekst i lista */}

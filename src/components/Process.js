@@ -279,7 +279,7 @@ const storiesData = [
         type: "incoming",
         text: "Just closed the XAUUSD trade. Unbelievable results for this week!",
         hasImage: true,
-        profit: "+ $1,240.50",
+        profit: "+ £1,240.50",
       },
       { type: "outgoing", text: "Great work Alex! Consistency is key 🔥" },
     ],
@@ -293,7 +293,7 @@ const storiesData = [
         type: "incoming",
         text: "Passed phase 1 today! Thanks to your signals.",
         hasImage: true,
-        profit: "+ $4,500.00",
+        profit: "+ £4,500.00",
       },
       { type: "incoming", text: "Sending proof now 👇" },
     ],
@@ -306,7 +306,7 @@ const storiesData = [
         type: "incoming",
         text: "Another TP hit on Gold. This strategy is printing money.",
         hasImage: true,
-        profit: "+ $892.00",
+        profit: "+ £892.00",
       },
       { type: "outgoing", text: "Love to see it! Keep compounding." },
       { type: "incoming", text: "🚀🚀" },
@@ -321,7 +321,7 @@ const storiesData = [
         type: "incoming",
         text: "Yes sir! 50 pips secured. Done for the day.",
         hasImage: true,
-        profit: "+ $320.00",
+        profit: "+ £320.00",
       },
     ],
   },
@@ -383,7 +383,7 @@ const TradingResultImage = ({ profit }) => (
           backgroundColor: "#4ade80",
         }}
       ></span>{" "}
-      MetaTrader 4
+      MetaTrader 5
     </div>
     <div className="trading-result">
       <div className="result-row">
@@ -392,7 +392,7 @@ const TradingResultImage = ({ profit }) => (
       </div>
       <div className="result-row">
         <span className="symbol-text">GBPUSD sell</span>
-        <span className="profit-text">+ $120.00</span>
+        <span className="profit-text">+ £120.00</span>
       </div>
       <div
         className="result-row"
