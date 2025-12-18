@@ -5,8 +5,9 @@ const cssStyles = `
     background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #0d163eff 70%);
     color: white;
     font-family: 'Inter', sans-serif;
-    padding: 5rem 1rem;
+    padding: 2rem 1rem 5rem 1rem;
     display: flex;
+    padding-top: 5rem;
     justify-content: center;
     text-align: center;
     overflow: hidden;
@@ -41,7 +42,7 @@ const cssStyles = `
     font-style: italic;
     font-size: 0.95rem;
     color: #94a3b8;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     letter-spacing: 0.5px;
   }
 
@@ -49,7 +50,7 @@ const cssStyles = `
     font-size: 2.8rem;
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     color: white;
     background: linear-gradient(135deg, #ffffff 0%, #86bdffff 100%);
     -webkit-background-clip: text;
@@ -69,7 +70,7 @@ const cssStyles = `
     gap: 0.6rem;
     font-size: 1.1rem;
     color: #e2e8f0;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     background: rgba(255, 255, 255, 0.05);
     padding: 0.5rem 1rem;
     border-radius: 99px;
@@ -79,10 +80,11 @@ const cssStyles = `
 
   .video-wrapper {
     width: 100%;
+    max-width: 900px;
     background-color: black;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 2.5rem;
+    margin: 0 auto 2rem auto;
     box-shadow: 0 0 40px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(30, 58, 138, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -115,25 +117,6 @@ const cssStyles = `
     justify-content: center;
     background: radial-gradient(circle, #0f172a 0%, #000000 100%);
     position: relative;
-  }
-  
-  .play-button {
-    width: 70px;
-    height: 70px;
-    background-color: rgba(59, 130, 246, 0.2); /* Niebieski tint */
-    border: 1px solid rgba(59, 130, 246, 0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
-  }
-
-  .video-content-placeholder:hover .play-button {
-    background-color: rgba(59, 130, 246, 0.4);
-    transform: scale(1.1);
   }
 
   /* STYL DLA LOKALNEGO WIDEO */
@@ -402,16 +385,14 @@ const VideoHeroSection = () => {
             </div>
 
             <div className="video-content-placeholder">
-              <div className="play-button">
-                <PlayIcon />
-              </div>
-              {/* <video
+              <video
                 autoPlay
+                muted
                 loop
                 playsInline
-                src="/film.mp4"
-                //  controls // Odkomentuj, jeśli chcesz pasek sterowania (play/pause)
-              ></video> */}
+                controls
+                src="/front.mp4"
+              ></video>
             </div>
           </div>
 

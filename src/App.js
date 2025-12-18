@@ -2,6 +2,7 @@ import Contact from "./components/Contact";
 import TechStack from "./components/FaqSection";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+import TestimonialsSection from "./components/Testimonials";
 import Navbar from "./components/Navbar"; // Import Navbar
 import SuccessStories from "./components/Process";
 import { GlobalStyle } from "./styles-config";
@@ -52,6 +53,11 @@ function App() {
         {/* Sekcja FAQ (TechStack) */}
         <section id="faq">
           <TechStack />
+        </section>
+      
+        {/* Sekcja TESTIMONIALS */}
+        <section id="testimonials">
+          <TestimonialsSection />
         </section>
 
         {/* Sekcja CONTACT / ABOUT */}
