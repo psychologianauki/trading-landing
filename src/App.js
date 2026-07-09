@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const galleryPhotos = [
   {
@@ -195,6 +195,42 @@ const pageStyles = `
     color: #e8dcc2;
     font-size: 0.9rem;
     font-weight: 700;
+  }
+
+  .menu-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255, 217, 128, 0.36);
+    border-radius: 8px;
+    background: rgba(255, 217, 128, 0.08);
+    color: var(--cream);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  }
+
+  .menu-toggle span {
+    width: 21px;
+    height: 2px;
+    border-radius: 99px;
+    background: var(--gold-bright);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .nav-links a {
@@ -900,17 +936,75 @@ const pageStyles = `
 
   @media (max-width: 980px) {
     .nav-inner {
-      min-height: auto;
-      padding: 14px 0;
-      align-items: flex-start;
-      flex-direction: column;
+      min-height: 68px;
+      padding: 10px 0;
+      align-items: center;
+      flex-direction: row;
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
     }
 
     .nav-links {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      right: 0;
       width: 100%;
-      gap: 12px;
-      overflow-x: auto;
-      padding-bottom: 4px;
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid rgba(255, 217, 128, 0.22);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(18, 15, 11, 0.98), rgba(5, 5, 5, 0.98)),
+        radial-gradient(circle at 20% 0%, rgba(255, 217, 128, 0.18), transparent 16rem);
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.52);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+      overflow: hidden;
+    }
+
+    .nav-links.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .nav-links a {
+      width: 100%;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 217, 128, 0.12);
+      border-radius: 8px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.035);
+      opacity: 1;
+    }
+
+    .nav-links a::after {
+      content: ">";
+      color: var(--gold-bright);
+      font-weight: 950;
+    }
+
+    .nav-cta {
+      justify-content: center;
+      background: linear-gradient(135deg, #a97822, #ffd980 56%, #fff0b8) !important;
+      color: #070604;
+      border-color: transparent;
+    }
+
+    .nav-cta::after {
+      color: #070604 !important;
     }
 
     .hero-stats,
@@ -993,26 +1087,45 @@ const pageStyles = `
 `;
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div className="site">
       <style>{pageStyles}</style>
 
       <header className="nav">
         <div className="container nav-inner">
-          <a href="#home" className="brand">
+          <a href="#home" className="brand" onClick={closeMenu}>
             <span className="brand-mark">AK</span>
             <span>
               Amir Khan Trading
               <small>Boxing discipline for market performance</small>
             </span>
           </a>
-          <nav className="nav-links" aria-label="Main navigation">
-            <a href="#achievements">Achievements</a>
-            <a href="#legacy">Legacy</a>
-            <a href="#program">Program</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#faq">FAQ</a>
-            <a href="#apply" className="nav-cta">Apply</a>
+          <button
+            className={`menu-toggle ${menuOpen ? "open" : ""}`}
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+            aria-controls="main-navigation"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          <nav
+            id="main-navigation"
+            className={`nav-links ${menuOpen ? "open" : ""}`}
+            aria-label="Main navigation"
+          >
+            <a href="#achievements" onClick={closeMenu}>Achievements</a>
+            <a href="#legacy" onClick={closeMenu}>Legacy</a>
+            <a href="#program" onClick={closeMenu}>Program</a>
+            <a href="#gallery" onClick={closeMenu}>Gallery</a>
+            <a href="#faq" onClick={closeMenu}>FAQ</a>
+            <a href="#apply" className="nav-cta" onClick={closeMenu}>Apply</a>
           </nav>
         </div>
       </header>
