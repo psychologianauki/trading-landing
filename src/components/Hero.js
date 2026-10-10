@@ -577,7 +577,7 @@ const VideoHeroSection = () => {
           >
 
           <a
-            href="https://vigco.co/Y3eQZv"
+            href="https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c"
             target="_blank"
             rel="noopener noreferrer"
             >

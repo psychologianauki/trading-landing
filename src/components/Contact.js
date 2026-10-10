@@ -75,7 +75,7 @@ const cssStyles = `
     overflow: hidden;
     /* Blue-ish shadow/glow */
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(59, 130, 246, 0.3);
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 3 / 4;
     background-color: #0f172a;
     display: flex;
     align-items: center;
@@ -278,9 +278,13 @@ const AboutSection = () => {
             {/* Lewa kolumna: Obrazek */}
             <div className="image-wrapper">
               <img
-                src="lambo.jpg"
-                alt="Trader in car"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                src="/images/trading-lifestyle.jpg"
+                alt="Trader seated beside a laptop overlooking the water"
+                width="1368"
+                height="1824"
+                loading="lazy"
+                decoding="async"
+                style={{ width: "100%", height: "auto", display: "block" }}
               />
             </div>
 
