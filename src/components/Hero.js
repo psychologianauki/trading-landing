@@ -1,3 +1,5 @@
+import React from 'react';
+
 // --- CSS STYLES ---
 const cssStyles = `
   .video-hero-section {
@@ -5,7 +7,7 @@ const cssStyles = `
     background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #0d163eff 70%);
     color: white;
     font-family: 'Inter', sans-serif;
-    padding: 2rem 1rem 5rem 1rem;
+    padding: 2rem 1rem 3rem 1rem;
     display: flex;
     padding-top: 5rem;
     justify-content: center;
@@ -220,6 +222,18 @@ const cssStyles = `
     left: 100%;
   }
 
+  @media (max-width: 480px) {
+    .cta-btn {
+      font-size: 1rem;
+      padding: 0.9rem 1.2rem;
+    }
+
+    .btn-arrow {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   .btn-arrow {
     width: 22px;
     height: 22px;
@@ -282,11 +296,124 @@ const cssStyles = `
     font-size: 0.8rem;
     color: #cbd5e1;
   }
+
+  .video-thumbnail-wrapper {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .video-thumbnail-wrapper:hover {
+    transform: scale(1.02);
+  }
+
+  .video-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(37, 99, 235, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.6);
+  }
+
+  .video-thumbnail-wrapper:hover .play-button-overlay {
+    background: rgba(59, 130, 246, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.8);
+  }
+
+  .play-button-overlay svg {
+    margin-left: 4px;
+  }
+
+  .bot-section {
+    margin-top: 1rem;
+    padding: 1rem 1 rem;
+    background: rgba(37, 99, 235, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 16px;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.1);
+  }
+
+  .bot-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bot-description {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .bot-cta-btn {
+    background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    text-decoration: none;
+  }
+
+  .bot-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+    background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+  }
+
+  @media (max-width: 768px) {
+    .bot-section {
+      padding: 2rem 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .bot-heading {
+      font-size: 1.5rem;
+    }
+
+    .bot-description {
+      font-size: 1rem;
+    }
+  }
 `;
 
 // --- ICONS (SVG) ---
 const TrophyIcon = () => (
-  <span style={{ filter: "grayscale(100%) brightness(200%)" }}>🏆</span>
+  <span style={{ filter: " brightness(200%)" }}>🏆</span>
 );
 
 const PlayIcon = () => (
@@ -358,13 +485,19 @@ const ArrowDownIcon = () => (
 
 // --- KOMPONENT ---
 const VideoHeroSection = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = React.useState(false);
+
+  const handleThumbnailClick = () => {
+    setIsVideoPlaying(true);
+  };
+
   return (
     <>
       <style>{cssStyles}</style>
       <section className="video-hero-section">
         <div className="video-hero-container">
           <p className="top-italic">
-            tired of blowing your trading account...?
+            Tired of blowing your trading account...?
           </p>
 
           <h1 className="main-heading">
@@ -376,27 +509,25 @@ const VideoHeroSection = () => {
           <div className="sub-heading">
             <TrophyIcon /> inside 2024's #1 rated trading group
           </div>
+                <div className="video-wrapper">
+                <div className="video-header-strip">
+                  <VolumeIcon />
+                  Step #1: Make Sure The Sound Is On!
+                </div>
 
-          {/* Video Box */}
-          <div className="video-wrapper">
-            <div className="video-header-strip">
-              <VolumeIcon />
-              Step #1: Make Sure The Sound Is On!
-            </div>
-
-            <div className="video-content-placeholder">
-              <video
+                <div className="video-content-placeholder">
+                <video
                 autoPlay
                 muted
                 loop
                 playsInline
                 controls
-                src="/front.mp4"
+                src="/front.MOV"
               ></video>
-            </div>
-          </div>
+                </div>
+                </div>
 
-          {/* Features below video */}
+                {/* Features below video */}
           <div className="features-row">
             {[
               "Regulated Broker",
@@ -414,6 +545,7 @@ const VideoHeroSection = () => {
           </div>
 
           {/* CTA Section */}
+            <section id="steps"></section>
           <div className="step-text">
             <span
               style={{
@@ -424,26 +556,122 @@ const VideoHeroSection = () => {
             >
               <ArrowDownIcon />
             </span>
-            Step #2: Apply To Get Started
+            Step #2: Set Up Your Free Trading Account
           </div>
 
           <p className="step-desc">
-            You'll be redirected to fill in your details so we can send over
-            your personalised invitation to the Telegram group...
+            You'll be redirected to fill your details and follow our step by step guide to help you get set up.
           </p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              gap: "10px",
+              flexWrap: "wrap",
+              overflowX: "auto",
+              WebkitOverflowScrolling: "touch",
+              maxWidth: "100%",
+            }}
+          >
+
           <a
-            href="https://t.me/+cBbK4iQfLBcwOGJk"
+            href="https://vigco.co/Y3eQZv"
             target="_blank"
             rel="noopener noreferrer"
-          >
+            >
             <button className="cta-btn">
               <div className="btn-arrow">
                 <ArrowIcon />
               </div>
-              Join Trading Group - It's Free
+              Create My Free Account
             </button>
           </a>
-          <div className="social-proof">
+            </div>
+
+                <div style={{ marginTop: "2rem" }}>
+                <div className="step-text">
+                  <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginRight: "8px",
+                  }}
+                  >
+                  <ArrowDownIcon />
+                  </span>
+                  Step #3: Learn The Basics With Me
+                </div>
+
+                <p className="step-desc">
+                  Watch this quick video to understand the fundamentals of forex trading to start with confidence.
+                </p>
+
+                <div className="video-wrapper">
+                  <div className="video-header-strip">
+                  <VolumeIcon />
+                  Learn The Basics
+                  </div>
+
+                  <div className="video-content-placeholder">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/qEK60FBF9Yw"
+                    title="Learn The Basics"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  ></iframe>
+                  </div>
+                </div>
+                </div>
+
+                {/* Bot Section */}
+          <div className="bot-section">
+            <h3 className="bot-heading">
+              Don't Have Time For Trading?
+            </h3>
+            <p className="bot-description">
+              Let our automated trading bot do the work for you. Trade every day without lifting a finger.
+            </p>
+            <a
+              href="https://tradewithazeembot.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bot-cta-btn"
+            >
+              <div className="btn-arrow">
+                <ArrowIcon />
+              </div>
+              Check Out Our Trading Bot
+            </a>
+          </div>
+
+          {/* Withdrawal Process Section */}
+          {/* <div className="bot-section" style={{ marginTop: '3rem' }}>
+            <h3 className="bot-heading">
+              Withdrawal Process
+            </h3>
+            <p className="bot-description">
+              Learn how to easily withdraw your profits with our step-by-step guide.
+            </p>
+            <a
+              href="/revolut.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bot-cta-btn"
+            >
+              <div className="btn-arrow">
+                <ArrowIcon />
+              </div>
+              View Withdrawal Guide (PDF)
+            </a>
+          </div> */}
+
+          <div className="social-proof" style={{ marginTop: "3rem" }}>
             <div className="avatars">
               <div className="avatar" style={{ backgroundColor: "#64748b" }}>
                 JD

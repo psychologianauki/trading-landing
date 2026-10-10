@@ -1,3 +1,9 @@
+import { BiCopy, BiPhone } from "react-icons/bi";
+import { BsPhone } from "react-icons/bs";
+import { FaBrain } from "react-icons/fa";
+import { GiBrainstorm } from "react-icons/gi";
+ 
+
 // --- CSS STYLES ---
 const cssStyles = `
   .testimonials-section {
@@ -5,12 +11,18 @@ const cssStyles = `
     background-image: radial-gradient(ellipse at 50% 50%, #1e293b 0%, #0d163eff 70%);
     color: white;
     font-family: 'Inter', sans-serif;
-    padding: 5rem 1rem;
+    padding: 0rem 1rem;
     display: flex;
     justify-content: center;
     text-align: center;
     overflow: hidden;
     position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-section {
+      padding: 0rem 1rem;
+    }
   }
 
   .testimonials-section::before {
@@ -39,7 +51,7 @@ const cssStyles = `
   }
 
   .testimonials-header {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
 
   .testimonials-subtitle {
@@ -107,6 +119,8 @@ const cssStyles = `
 
   .testimonial-video-wrapper {
     width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
     background-color: black;
     position: relative;
     aspect-ratio: 9 / 16;
@@ -137,7 +151,8 @@ const cssStyles = `
     pointer-events: none;
   }
 
-  .testimonial-video-wrapper:hover .testimonial-play-overlay {
+  .testimonial-video-wrapper:hover .testimonial-play-overlay,
+  .testimonial-video-wrapper:focus-within .testimonial-play-overlay {
     opacity: 0;
   }
 
@@ -213,6 +228,126 @@ const cssStyles = `
     width: 14px;
     height: 14px;
   }
+
+  /* Credentials Section Styles */
+  .credentials-section {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+    width: 100%;
+  }
+
+  .credentials-header {
+    margin-bottom: 3rem;
+  }
+
+  .credentials-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: white;
+    background: linear-gradient(135deg, #ffffff 0%, #86bdffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .credentials-title {
+      font-size: 1.6rem;
+    }
+  }
+
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .credentials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .credential-card {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(30, 41, 59, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .credential-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  .credential-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(37, 99, 235, 0.15);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .credential-card:hover .credential-icon {
+    background: rgba(37, 99, 235, 0.25);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+
+  .credential-icon svg {
+    width: 40px;
+    height: 40px;
+    color: #3b82f6;
+  }
+
+  .credential-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+  }
+
+  .credential-desc {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  .credentials-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+
+  .credentials-footer-text {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .credentials-footer-highlight {
+    color: #60a5fa;
+    font-weight: 700;
+  }
 `;
 
 // --- ICONS (SVG) ---
@@ -234,24 +369,99 @@ const VerifiedIcon = () => (
   </svg>
 );
 
+// Credentials Icons
+const ChartIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <line x1="12" y1="20" x2="12" y2="10"></line>
+    <line x1="18" y1="20" x2="18" y2="4"></line>
+    <line x1="6" y1="20" x2="6" y2="16"></line>
+  </svg>
+);
+
+const TrendIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+    <polyline points="16 7 22 7 22 13"></polyline>
+  </svg>
+);
+
+const BrainIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3 3 3 0 0 0 3-3V5a3 3 0 0 0-3-3z"></path>
+    <path d="M12 12a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0v-4a3 3 0 0 0-3-3z"></path>
+    <path d="M3 12a3 3 0 0 0 3 3h1"></path>
+    <path d="M17 12h1a3 3 0 0 1 0 6h-1"></path>
+  </svg>
+);
+
+const CommunityIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="9" cy="7" r="4"></circle>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+  </svg>
+);
+
 // --- KOMPONENT ---
 const TestimonialsSection = () => {
   const testimonials = [
     {
       videoSrc: "/test1.mp4",
-      name: "Julia Smith",
-      role: "Day Trader",
+      name: "Amy Barrier",
+      role: "Business Owner",
       rating: 5,
       text: "This trading group completely changed my approach. The daily ideas are clear, actionable, and profitable!",
       verified: true,
     },
     {
       videoSrc: "/test2.mp4",
-      name: "John Johnson",
-      role: "Part-Time Trader",
+      name: "Luke Meecham",
+      role: "Mechanic",
       rating: 5,
       text: "Finally found a community that delivers real value. No BS, just solid trading setups every day.",
       verified: true,
+    },
+    {
+      videoSrc: "/test3.mp4",
+      name: "Mueez Ahmed",
+      role: "Finance broker",
+      rating: 5,
+      text: "I was always sceptical of trading but honestly this is a game changer.",
+      verified: true,
+    },
+  ];
+
+  const credentials = [
+    {
+      icon: <ChartIcon />,
+      name: "Guided Market Analysis",
+      description: "Experts break down their setups",
+    },
+
+    {
+      icon: <div style={{
+        display: "flex",
+      }}> 
+        <BsPhone style={{
+          width: "30px"
+        }}/>
+        <BiCopy style={{
+          width: "30px"
+        }}/>
+      </div>,
+      name: "📋 Copy, 📱 Paste, 💰 Profit!",
+      description: "Copy the setup from our expert traders",
+    },
+    {
+      icon: <GiBrainstorm />,
+      name: "Mindset Lessons",
+      description: "Daily reminders that shift how you think, act, and manage risk",
+    },
+    {
+      icon: <CommunityIcon />,
+      name: "Community Access",
+      description: "Be part of a community that shares, supports, and succeeds together",
     },
   ];
 
@@ -280,12 +490,8 @@ const TestimonialsSection = () => {
                   <video
                     loop
                     playsInline
+                    controls
                     src={testimonial.videoSrc}
-                    onMouseEnter={(e) => e.target.play()}
-                    onMouseLeave={(e) => {
-                      e.target.pause();
-                      e.target.currentTime = 0;
-                    }}
                   ></video>
                   <div className="testimonial-play-overlay">
                     <div className="testimonial-play-button">
@@ -317,6 +523,33 @@ const TestimonialsSection = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Credentials Section */}
+          <div className="credentials-section">
+            <div className="credentials-header">
+              <h3 className="credentials-title">
+                Your steps to success -  A full system unlocks everything you need to succeed!            
+                  </h3>
+            </div>
+
+            <div className="credentials-grid">
+              {credentials.map((credential, idx) => (
+                <div key={idx} className="credential-card">
+                  <div className="credential-icon">
+                    {credential.icon}
+                  </div>
+                  <h4 className="credential-name">{credential.name}</h4>
+                  <p className="credential-desc">{credential.description}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* <div className="credentials-footer">
+              <p className="credentials-footer-text">
+                <span className="credentials-footer-highlight">Join Our Free Telegram Group</span> and start your trading journey today
+              </p>
+            </div> */}
           </div>
         </div>
       </section>

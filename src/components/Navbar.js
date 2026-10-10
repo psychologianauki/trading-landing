@@ -249,6 +249,14 @@ const Navbar = () => {
                 Start
               </a>
             </li>
+              <li>
+              <a
+                className="nav-link"
+                onClick={(e) => scrollToSection(e, "steps")}
+              >
+                Step by step guide
+              </a>
+            </li>
             <li>
               <a
                 href="#results"
@@ -278,7 +286,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="https://t.me/+cBbK4iQfLBcwOGJk"
+                href="https://t.me/+s_bw_-sioixlMjI8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nav-btn"

@@ -5,7 +5,7 @@ const cssStyles = `
   .faq-section {
     background-color: #020617; /* Głęboka czerń/granat */
     background-image: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #0e1538ff 70%); /* Spotlight od góry */
-    padding: 5rem 1rem;
+    padding: 2rem 1rem;
     font-family: 'Inter', sans-serif;
     color: white;
     display: flex;
@@ -13,6 +13,12 @@ const cssStyles = `
     align-items: center;
     position: relative;
     overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: 0rem 1rem;
+    }
   }
 
   /* Subtelna siatka w tle */
@@ -125,7 +131,7 @@ const cssStyles = `
   }
 
   .accordion-content-inner {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
     color: #cbd5e1; /* Lighter text for readability */
     font-size: 1rem;
     line-height: 1.7;
@@ -256,7 +262,7 @@ const faqData = [
   {
     question: "Are there any upfront costs or monthly fees?",
     answer:
-      "We offer transparent pricing with no hidden fees. You can choose between a monthly subscription or a lifetime access plan, depending on your commitment level.",
+      "Start with ZERO upfront fees. just fund your own trading account and you're ready to go.",
   },
   {
     question: "Do I get free weekly overview calls?",
@@ -318,7 +324,7 @@ const FaqSection = () => {
 
           <div className="cta-container">
             <a
-              href="https://t.me/+cBbK4iQfLBcwOGJk"
+              href="https://t.me/+s_bw_-sioixlMjI8"
               target="_blank"
               rel="noopener noreferrer"
             >

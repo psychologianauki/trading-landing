@@ -12,6 +12,12 @@ const cssStyles = `
     overflow: hidden;
   }
 
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 0.5rem 1rem;
+    }
+  }
+
   /* Subtelna siatka w tle */
   .about-section::before {
     content: '';
@@ -38,9 +44,9 @@ const cssStyles = `
 
   .about-title {
     text-align: center;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     color: white;
     /* Gradient text matching Hero */
     background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
@@ -95,7 +101,7 @@ const cssStyles = `
   .features-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 3rem 0;
+    margin: 0 0 1rem 0;
   }
 
   .feature-item {
@@ -266,7 +272,7 @@ const AboutSection = () => {
       <style>{cssStyles}</style>
       <section className="about-section">
         <div className="about-container">
-          <h2 className="about-title">Who Is Gold Trading Community?</h2>
+          <h3 className="about-title">Who Is TradeWithAzeem?</h3>
 
           <div className="content-grid">
             {/* Lewa kolumna: Obrazek */}
@@ -295,7 +301,7 @@ const AboutSection = () => {
 
               <div className="cta-wrapper">
                 <a
-                  href="https://t.me/+cBbK4iQfLBcwOGJk"
+                  href="https://t.me/+s_bw_-sioixlMjI8"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

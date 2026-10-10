@@ -45,20 +45,17 @@ function App() {
           <Hero />
         </section>
 
-        {/* Sekcja SUCCESS STORIES (Process) */}
+        {/* Sekcja TESTIMONIALS */}
         <section id="results">
-          <SuccessStories />
+          <TestimonialsSection />
         </section>
 
         {/* Sekcja FAQ (TechStack) */}
         <section id="faq">
           <TechStack />
+          {/* <SetupGuide /> */}
         </section>
       
-        {/* Sekcja TESTIMONIALS */}
-        <section id="testimonials">
-          <TestimonialsSection />
-        </section>
 
         {/* Sekcja CONTACT / ABOUT */}
         <section id="contact">
