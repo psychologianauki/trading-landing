@@ -1,4 +1,4 @@
-import { Arrow, JoinLink } from './Brand';
+import { Arrow, JoinLink, tradequoUrl } from './Brand';
 
 export default function Hero() {
   return <>
@@ -27,11 +27,11 @@ export default function Hero() {
         <div className="section-heading"><div><p className="eyebrow">Getting started</p><h2>A simple start.<br /><em>A stronger foundation.</em></h2></div><p>From your first introduction to your first trading setup, follow the guide at your own pace.</p></div>
         <div className="steps-grid">
           <article className="step"><span className="step-number">01</span><h3>Get to know us</h3><p>Watch the introduction above to discover our approach to the markets and the community behind it.</p><a className="text-link" href="#home">Watch the introduction <Arrow /></a></article>
-          <article className="step"><span className="step-number">02</span><h3>Set up your account</h3><p>Create your free trading account, fill in your details, and follow the step by step setup guide.</p><a className="text-link" href="https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c" target="_blank" rel="noopener noreferrer">Create My Free Account <Arrow /></a></article>
+          <article className="step"><span className="step-number">02</span><h3>Set up your account</h3><p>Create your free trading account, fill in your details, and follow the step by step setup guide.</p><a className="text-link" href={tradequoUrl} target="_blank" rel="noopener noreferrer">Create My Free Account <Arrow /></a></article>
           <article className="step"><span className="step-number">03</span><h3>Learn the essentials</h3><p>Build your understanding of forex trading with a guided introduction to the fundamentals.</p><a className="text-link" href="#learn">Learn the basics <Arrow /></a></article>
         </div>
         <div id="learn" className="learn-grid"><div><p className="eyebrow">Learn the basics</p><h3>Confidence begins<br />with understanding.</h3><p>Take a moment to learn the basics. A thoughtful approach starts with the right foundation.</p></div><div className="lesson-frame"><iframe src="https://www.youtube.com/embed/qEK60FBF9Yw" title="Learn The Basics" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /></div></div>
-        <div className="bot-banner"><div><p className="eyebrow">Automated trading</p><h3>A different way to approach the markets.</h3></div><a className="outline-button" href="https://tradewithazeembot.com/" target="_blank" rel="noopener noreferrer">Check Out Our Trading Bot <Arrow /></a></div>
+        <div className="bot-banner"><div><p className="eyebrow">Automated trading</p><h3>A different way to approach the markets.</h3></div><a className="gold-button" href={tradequoUrl} target="_blank" rel="noopener noreferrer">Get started on TradeQuo <Arrow /></a></div>
       </div>
     </section>
   </>;
