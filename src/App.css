@@ -249,7 +249,7 @@ h3 {
 .hero {
   position:relative;
   overflow:hidden;
-  padding:60px 0 0;
+  padding:20px 0 0;
 }
 
 .hero-grid {
@@ -257,7 +257,7 @@ h3 {
   width:min(1440px,calc(100% - 64px));
   grid-template-columns:minmax(320px,.85fr) minmax(0,1.4fr);
   gap:44px;
-  align-items:center;
+  align-items:start;
   position:relative;
   z-index:1;
   padding-bottom:50px;
@@ -829,7 +829,7 @@ h3 {
 
 @media(min-width:1500px) {
   .hero {
-    padding-top:75px;
+    padding-top:24px;
   }
   .hero-grid {
     padding-bottom:60px;
@@ -928,7 +928,7 @@ h3 {
     font-size: 15px;
 }
   .hero {
-    padding-top:40px;
+    padding-top:20px;
   }
   .hero-grid {
     grid-template-columns:1fr;
@@ -1029,7 +1029,7 @@ h3 {
     width:calc(100% - 40px);
   }
   .hero {
-    padding-top:32px;
+    padding-top:16px;
   }
   .hero-copy>.eyebrow {
     font-size: 13px;

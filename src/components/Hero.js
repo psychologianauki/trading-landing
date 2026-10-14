@@ -20,7 +20,7 @@ export default function Hero() {
           <div className="film-seal"><span>TRADE WITH AZEEM<br />DISCIPLINE OVER EVERYTHING</span></div>
         </div>
       </div>
-      <div className="benefits container">{['No setup cost', 'Daily trading ideas', 'Mini-courses', 'No monthly fee'].map((text, i) => <div key={text}><span className="benefit-number">0{i + 1}</span><span>{text}</span><span className="benefit-star" aria-hidden="true">✦</span></div>)}</div>
+      <div className="benefits container">{['No Setup Cost', 'Daily Trading Ideas', 'Full Academy And Live Sessions', 'No Monthly Fee'].map((text, i) => <div key={text}><span className="benefit-number">0{i + 1}</span><span>{text}</span><span className="benefit-star" aria-hidden="true">✦</span></div>)}</div>
     </section>
     <section id="steps" className="section steps-section">
       <div className="container">
@@ -31,7 +31,7 @@ export default function Hero() {
           <article className="step"><span className="step-number">03</span><h3>Learn the essentials</h3><p>Build your understanding of forex trading with a guided introduction to the fundamentals.</p><a className="text-link" href="#learn">Learn the basics <Arrow /></a></article>
         </div>
         <div id="learn" className="learn-grid"><div><p className="eyebrow">Learn the basics</p><h3>Confidence begins<br />with understanding.</h3><p>Take a moment to learn the basics. A thoughtful approach starts with the right foundation.</p></div><div className="lesson-frame"><iframe src="https://www.youtube.com/embed/qEK60FBF9Yw" title="Learn The Basics" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /></div></div>
-        <div className="bot-banner"><div><p className="eyebrow">Automated trading</p><h3>A different way to approach the markets.</h3></div><a className="gold-button" href={tradequoUrl} target="_blank" rel="noopener noreferrer">Get started on TradeQuo <Arrow /></a></div>
+        <div className="bot-banner"><div><p className="eyebrow">Automated trading</p><h3>A different way to approach the markets.</h3></div><a className="gold-button" href={tradequoUrl} target="_blank" rel="noopener noreferrer">Get Started For FREE <Arrow /></a></div>
       </div>
     </section>
   </>;
