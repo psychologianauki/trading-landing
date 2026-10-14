@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+<defs>
+ <filter id="stone"><feTurbulence type="fractalNoise" baseFrequency=".012 .025" numOctaves="4" seed="14"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="linear" slope=".18" intercept=".82"/><feFuncG type="linear" slope=".17" intercept=".81"/><feFuncB type="linear" slope=".16" intercept=".78"/></feComponentTransfer></filter>
+ <filter id="warp"><feTurbulence type="fractalNoise" baseFrequency=".008 .015" numOctaves="3" seed="22" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="30" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation=".4"/></filter>
+ <filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<rect width="1800" height="1200" fill="#faf8f3"/>
+<rect width="1800" height="1200" filter="url(#stone)" opacity=".24"/>
+<g fill="none" stroke="#b5ada0" opacity=".14" filter="url(#soft)"><path d="M-80 560 80 450 150 300 370 225 520 30 620-60" stroke-width="20"/><path d="m1140-60 90 220 140 80 50 145 210 130 70 240 170 160" stroke-width="14"/><path d="m350 1250 170-200 15-190 140-100 115-200 190-70 60-110 190-130" stroke-width="10"/></g>
+<g fill="none" stroke="#b2aaa0" opacity=".28" filter="url(#warp)" stroke-width="1.2"><path d="M-80 560 80 450 150 300 370 225 520 30 620-60"/><path d="m80 450 240 40 70 110 135 28"/><path d="m150 300-40-100 95-105"/><path d="m370 225 75 40 150-105 40-145"/><path d="m1140-60 90 220 140 80 50 145 210 130 70 240 170 160"/><path d="m1370 240 200-80 90-180"/><path d="m1420 385-190 145-60 30-20 115"/><path d="m1630 515 60-95 190-50"/><path d="m350 1250 170-200 15-190 140-100 115-200 190-70 60-110 190-130"/><path d="m535 860-155-80-90-120"/><path d="m790 560-40-200 130-110"/><path d="m980 490 180 90 115-20"/></g>
+<g fill="none" stroke="#b79751" opacity=".43" filter="url(#warp)"><path d="m-20 508 100-58 70-150 110-37" stroke-width="1.4"/><path d="m1230 160 140 80 50 145 75 47" stroke-width="2"/><path d="m350 1250 170-200 15-190 85-60" stroke-width="1.2"/><path d="m790 560 190-70 60-110" stroke-width="1"/></g>
+</svg>
