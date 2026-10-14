@@ -324,7 +324,7 @@ const FaqSection = () => {
 
           <div className="cta-container">
             <a
-              href="https://t.me/+s_bw_-sioixlMjI8"
+              href="https://t.me/+yOCIB9-WzsM3ZjU0"
               target="_blank"
               rel="noopener noreferrer"
             >

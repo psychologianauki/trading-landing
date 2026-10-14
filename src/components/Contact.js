@@ -258,10 +258,10 @@ const cssStyles = `
 
 // --- DANE (Teksty z obrazka) ---
 const features = [
-  "We are a team of professional traders with over 20 years combined experience",
+  "We are a team of professional traders with over 50 years combined experience",
   "We spend over 50+ hours a week analysing the financial markets for our members",
-  "We send 4-7 trades per day which members can copy & paste with no experience needed",
-  "We have helped 3000+ members create a side hustle",
+  "We send multiple trades per day which members can copy & paste with no experience needed",
+  "We have helped 5000+ members create a side hustle",
   "Based in Dubai & UK",
 ];
 
@@ -305,7 +305,7 @@ const AboutSection = () => {
 
               <div className="cta-wrapper">
                 <a
-                  href="https://t.me/+s_bw_-sioixlMjI8"
+                  href="https://t.me/+yOCIB9-WzsM3ZjU0"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -325,7 +325,7 @@ const AboutSection = () => {
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
                     </div>
-                    Join Trading Group - It's Free
+                    Be a part of my journey on Telegram
                   </button>
                 </a>
                 <div className="social-proof">
