@@ -19,11 +19,11 @@ test('renders the Trade with Azeem brand, videos and existing account links', ()
 
 test('opens and closes FAQ answers', () => {
   render(<App />);
-  const question = screen.getByRole('button', { name: /Are there any upfront costs/i });
+  const question = screen.getByRole('button', { name: /Do you have a trading academy/i });
   fireEvent.click(question);
-  expect(screen.getByText(/Start with ZERO upfront fees/i)).toBeInTheDocument();
+  expect(screen.getByText(/Our trading academy helps you build your knowledge/i)).toBeInTheDocument();
   fireEvent.click(question);
-  expect(screen.queryByText(/Start with ZERO upfront fees/i)).not.toBeInTheDocument();
+  expect(screen.queryByText(/Our trading academy helps you build your knowledge/i)).not.toBeInTheDocument();
 });
 
 test('testimonial videos use native controls without starting playback on hover', () => {
