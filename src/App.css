@@ -477,6 +477,137 @@ h3 {
   max-width:320px;
 }
 
+.academy-trigger {
+  border:0;
+  background:none;
+  font-family:inherit;
+}
+
+body:has(.academy-dialog[open]) {
+  overflow:hidden;
+}
+
+.academy-dialog {
+  width:min(640px,calc(100% - 32px));
+  max-height:calc(100vh - 32px);
+  max-height:calc(100dvh - 32px);
+  padding:0;
+  border:1px solid var(--gold-light);
+  border-radius:8px;
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:var(--sans);
+  overflow:hidden;
+  box-shadow:0 24px 80px #29272040;
+}
+
+.academy-dialog[open] {
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+}
+
+.academy-dialog::backdrop {
+  background:rgba(29,26,20,.65);
+  backdrop-filter:blur(4px);
+}
+
+.academy-dialog-header {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:24px;
+  border-bottom:1px solid var(--line);
+}
+
+.academy-dialog-header h2 {
+  margin-top:8px;
+  font-size:clamp(25px,5vw,34px);
+}
+
+.academy-close {
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  width:36px;
+  height:36px;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:transparent;
+  color:var(--ink);
+  font:26px/1 var(--sans);
+}
+
+.academy-close:hover {
+  background:var(--paper);
+}
+
+.academy-dialog-body {
+  padding:24px;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+
+.academy-dialog-body p {
+  max-width:none;
+  margin:0 0 20px;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.academy-instructions {
+  margin:0 0 24px;
+  padding-left:24px;
+}
+
+.academy-instructions li,.academy-notice li {
+  padding-left:4px;
+  margin-bottom:8px;
+}
+
+.academy-instructions li::marker {
+  color:var(--gold);
+  font-weight:600;
+}
+
+.academy-notice {
+  margin-bottom:24px;
+  padding:18px;
+  border-left:2px solid var(--gold-light);
+  background:var(--paper);
+}
+
+.academy-notice h3 {
+  margin:0;
+  font-size:18px;
+}
+
+.academy-notice ul {
+  padding-left:20px;
+  margin:12px 0;
+  color:var(--muted);
+}
+
+.academy-notice p,.academy-dialog-body .academy-welcome {
+  margin-bottom:0;
+}
+
+.academy-dialog-body .academy-welcome {
+  color:var(--ink);
+  font-weight:500;
+}
+
+.academy-dialog-footer {
+  padding:20px 24px;
+  border-top:1px solid var(--line);
+  background:var(--paper);
+}
+
+.academy-dialog-footer .gold-button {
+  width:100%;
+}
+
 .learn-grid {
   display:grid;
   grid-template-columns:.85fr 1fr;
