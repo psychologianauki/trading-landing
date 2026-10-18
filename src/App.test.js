@@ -13,7 +13,7 @@ test('renders the Trade with Azeem brand, videos and existing account links', ()
   expect(screen.getByText('Mueez Ahmed')).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /Create My Free Account/i })).toHaveAttribute('href', 'https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c');
   expect(screen.getByRole('link', { name: /Get started on TradeQuo/i })).toHaveAttribute('href', 'https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c');
-  expect(document.querySelector('video[src="/front.MOV"]')).toBeInTheDocument();
+  expect(document.querySelector('video[src="/front2.mp4"]')).toBeInTheDocument();
   expect(document.querySelector('video[src="/test3.mp4"]')).toBeInTheDocument();
 });
 

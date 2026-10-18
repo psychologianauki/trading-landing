@@ -14,7 +14,7 @@ export default function Hero() {
         <div className="hero-film">
           <div className="film-frame">
             <div className="film-heading"><span className="eyebrow">Watch the introduction</span><span aria-hidden="true"></span></div>
-            <video width="1920" height="1080" controls playsInline preload="none" poster="/images/introduction-poster.jpg" src="/front.MOV" aria-label="Introduction to our trading community" />
+            <video width="464" height="688" controls playsInline preload="none" poster="/images/front2-poster.jpg" src="/front2.mp4" aria-label="Introduction to our trading community" />
             <div className="film-caption"><span>Every journey starts with a perspective.</span><span className="sound-note">SOUND ON ↗</span></div>
           </div>
           <div className="film-seal"><span>TRADE WITH AZEEM<br />DISCIPLINE OVER EVERYTHING</span></div>
