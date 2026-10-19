@@ -12,7 +12,9 @@ test('renders the Trade with Azeem brand, videos and existing account links', ()
   });
   expect(screen.getByText('Mueez Ahmed')).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /Create My Free Account/i })).toHaveAttribute('href', 'https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c');
-  expect(screen.getByRole('link', { name: /Get started on TradeQuo/i })).toHaveAttribute('href', 'https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c');
+  screen.getAllByRole('link', { name: 'Get started' }).forEach(link => {
+    expect(link).toHaveAttribute('href', 'https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c');
+  });
   expect(document.querySelector('video[src="/front.MOV"]')).toBeInTheDocument();
   expect(document.querySelector('video[src="/test3.mp4"]')).toBeInTheDocument();
 });
@@ -55,12 +57,18 @@ test('mobile menu closes after navigating to the setup guide', () => {
   scrollTo.mockRestore();
 });
 
-test('only the journey link opens Telegram and all other external links open TradeQuo', () => {
+test('community and automation links keep their respective destinations', () => {
   render(<App />);
-  const journey = screen.getByRole('link', { name: 'Be part of the journey' });
-  expect(journey).toHaveAttribute('href', 'https://t.me/+yOCIB9-WzsM3ZjU0');
   const externalLinks = screen.getAllByRole('link').filter(link => link.getAttribute('href').startsWith('https://'));
+  const journey = externalLinks.find(link => link.getAttribute('href') === 'https://t.me/+yOCIB9-WzsM3ZjU0');
+  expect(journey).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Get Started For FREE' })).toHaveAttribute('href', 'https://tradewithazeembot.com/');
+  expect(screen.getByRole('link', { name: 'See how it works' })).toHaveAttribute('href', 'https://tradewithazeembot.com/#how-to-start');
   externalLinks.filter(link => link !== journey).forEach(link => {
-    expect(link).toHaveAttribute('href', 'https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c');
+    expect([
+      'https://my.tradequo.com/register?referral=019e98c9-e8af-7036-8c61-0c03d806507c',
+      'https://tradewithazeembot.com/',
+      'https://tradewithazeembot.com/#how-to-start',
+    ]).toContain(link.getAttribute('href'));
   });
 });

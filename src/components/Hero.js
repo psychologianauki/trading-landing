@@ -1,5 +1,6 @@
 import { Arrow, JoinLink, tradequoUrl } from './Brand';
 import AcademyAccess from './AcademyAccess';
+import AutomationSpotlight from './AutomationSpotlight';
 
 export default function Hero() {
   return <>
@@ -9,7 +10,7 @@ export default function Hero() {
           <p className="eyebrow"><span /> Trade with Azeem</p>
           <h1>Built on discipline.<br />Driven by <em>excellence.</em></h1>
           <p className="hero-description">Daily trading ideas. Expert market insight. A community that moves forward together.</p>
-          <div className="hero-actions"><JoinLink /><a className="text-link" href="#steps">Discover the approach <Arrow /></a></div>
+          <div className="hero-actions"><JoinLink /><a className="text-link" href="#automation">Explore automated trading <Arrow /></a></div>
           <div className="hero-note"><span className="small-star" aria-hidden="true">✦</span> Free to join. No monthly membership fee.</div>
         </div>
         <div className="hero-film">
@@ -23,6 +24,7 @@ export default function Hero() {
       </div>
       <div className="benefits container">{['No Setup Cost', 'Daily Trading Ideas', 'Full Academy And Live Sessions', 'No Monthly Fee'].map((text, i) => <div key={text}><span className="benefit-number">0{i + 1}</span><span>{text}</span><span className="benefit-star" aria-hidden="true">✦</span></div>)}</div>
     </section>
+    <AutomationSpotlight />
     <section id="steps" className="section steps-section">
       <div className="container">
         <div className="section-heading"><div><p className="eyebrow">Getting started</p><h2>A simple start.<br /><em>A stronger foundation.</em></h2></div><p>From your first introduction to your first trading setup, follow the guide at your own pace.</p></div>
@@ -35,7 +37,6 @@ export default function Hero() {
         <div id="learn" className="learn-grid"><div><p className="eyebrow">Learn the basics</p><h3>Confidence begins<br />with understanding.</h3><p>Take a moment to learn the basics. A thoughtful approach starts with the right foundation.</p></div><div className="lesson-frame">
           <iframe src="https://www.youtube.com/embed/aF3CtKCMWyg" title="Learn The Basics" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
           </div></div>
-        <div className="bot-banner"><div><p className="eyebrow">Automated trading</p><h3>A different way to approach the markets.</h3></div><a className="gold-button" href="https://tradewithazeembot.com" target="_blank" rel="noopener noreferrer">Get Started For FREE <Arrow /></a></div>
       </div>
     </section>
   </>;

@@ -19,7 +19,7 @@ export default function Navbar() {
       <a href="#home" aria-label="Trade with Azeem home" onClick={e => navigate(e, 'home')}><Brand /></a>
       <button className={`hamburger ${isOpen ? 'active' : ''}`} aria-label={isOpen ? 'Close menu' : 'Open menu'} aria-expanded={isOpen} aria-controls="main-menu" onClick={() => setIsOpen(!isOpen)}><span /><span /></button>
       <ul id="main-menu" className={`nav-links ${isOpen ? 'active' : ''}`}>
-        {[['home', 'Home'], ['steps', 'Step by step guide'], ['results', 'Results'], ['faq', 'FAQ'], ['contact', 'About']].map(([id, text]) => <li key={id}><a href={`#${id}`} onClick={e => navigate(e, id)}>{text}</a></li>)}
+        {[['home', 'Home'], ['automation', 'Automation'], ['steps', 'Step by step guide'], ['results', 'Results'], ['faq', 'FAQ'], ['contact', 'About']].map(([id, text]) => <li key={id}><a href={`#${id}`} onClick={e => navigate(e, id)}>{text}</a></li>)}
         <li><JoinLink className="gold-button nav-cta">Join now</JoinLink></li>
       </ul>
     </nav>
